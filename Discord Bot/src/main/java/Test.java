@@ -24,11 +24,7 @@ public class Test extends ListenerAdapter {
 		//If the message received was sent by the bot, get out of the method
 		if(event.getAuthor().isBot())
 			return;
-		//If the message is "Hola"
-		if(event.getMessage().getContentRaw().equals("Hola")) {
-			//Send the message "Mundo" in the channel.
-			channel.sendMessage("Mundo").queue();
-		} else
-			channel.sendMessage("Chupalo cuequito").queue();
+		if(event.getMessage().getContentRaw().equals("nigroid"))
+			event.getMessage().delete().queue();
 	}
 }
