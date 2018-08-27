@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.JDA"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.AccountType"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.JDABuilder"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.hooks.ListenerAdapter"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.events.message.MessageReceivedEvent"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.MessageChannel"/>
+</qualifiedTypeNameHistroy>
