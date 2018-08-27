@@ -28,6 +28,8 @@ public class Test extends ListenerAdapter {
 		if(event.getMessage().getContentRaw().equals("Hola")) {
 			//Send the message "Mundo" in the channel.
 			channel.sendMessage("Mundo").queue();
+		} else if(event.getMessage().getContentRaw().equals("nigroid"))
+			event.getMessage().delete().queue();
 		} else
 			channel.sendMessage("Chupalo cuequito").queue();
 	}
