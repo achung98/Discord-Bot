@@ -11,3 +11,4 @@
 2018-08-25 15:34:49,530 [Stop Help Server] INFO  org.eclipse.jetty.server.session - Stopped scavenging
 2018-08-25 15:34:49,545 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@67f8aab6{/help,null,UNAVAILABLE}
 2018-08-25 15:35:26,762 [Worker-2] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-26 21:46:03,287 [Worker-0] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
