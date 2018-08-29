@@ -1,0 +1,23 @@
+import net.dv8tion.jda.core.entities.Member;
+
+public class Warning {
+	private static UsersLinkedList userList = new UsersLinkedList();
+	
+	public static boolean checkMember(Member member) {
+		if(userList.contains(member)) {
+			if(userList.getWarning(member) != 3) {
+				int warnings = userList.getWarning(member)+1;
+				userList.setWarning(member, warnings);
+				System.out.println("Warning updated: " + userList.getWarning(member));
+			} else {
+				return true;
+			}
+		}
+		userList.add(member);
+		return false;
+	}
+	
+	public static int getWarnings(Member member) {
+		return userList.getWarning(member);
+	}
+}

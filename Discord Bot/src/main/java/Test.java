@@ -2,13 +2,20 @@ import javax.security.auth.login.LoginException;
 
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDABuilder;
+import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.MessageChannel;
+import net.dv8tion.jda.core.entities.PrivateChannel;
+import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.exceptions.HierarchyException;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.core.managers.GuildController;
 
 public class Test extends ListenerAdapter {
 
-	public static void main(String[] args) throws LoginException {
+	public static void main(String[] args) throws LoginException, InterruptedException {
+		//Warning.deleteAll();
 		//Bot object
 		JDABuilder example = new JDABuilder(AccountType.BOT);
 		//Set the bot token (Sale en la pagina de developers de discord)
@@ -20,22 +27,15 @@ public class Test extends ListenerAdapter {
 	}
 	
 	public void onMessageReceived(MessageReceivedEvent event) {
-		MessageChannel channel = event.getChannel(); //Stores the channel that the message was received from
-		//If the message received was sent by the bot, get out of the method
+		String msg = event.getMessage().getContentRaw();
+		
 		if(event.getAuthor().isBot())
 			return;
-<<<<<<< HEAD
-		if(event.getMessage().getContentRaw().equals("nigroid"))
-			event.getMessage().delete().queue();
-=======
-		//If the message is "Hola"
-		if(event.getMessage().getContentRaw().equals("Hola")) {
-			//Send the message "Mundo" in the channel.
-			channel.sendMessage("Mundo").queue();
-		} else if(event.getMessage().getContentRaw().equals("nigroid"))
-			event.getMessage().delete().queue();
-		} else
-			channel.sendMessage("Chupalo cuequito").queue();
->>>>>>> 1d621cf023c2c83089040e886bd5072f05f199b0
+		
+			WordsModeration.execute(event, msg);
+		
+		
 	}
+	
+	
 }

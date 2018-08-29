@@ -6,4 +6,16 @@
 <fullyQualifiedTypeName name="net.dv8tion.jda.core.hooks.ListenerAdapter"/>
 <fullyQualifiedTypeName name="net.dv8tion.jda.core.events.message.MessageReceivedEvent"/>
 <fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.MessageChannel"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.requests.restaction.MemberAction"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.managers.GuildController"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.Member"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.PrivateChannel"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.User"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.entities.Guild"/>
+<fullyQualifiedTypeName name="net.dv8tion.jda.core.exceptions.HierarchyException"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

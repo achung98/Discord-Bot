@@ -1,0 +1,6 @@
+
+public class Warning {
+	private UsersLinkedList userList = new UsersLinkedList();
+	
+	
+}

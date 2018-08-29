@@ -1,0 +1,53 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.FileInputStream;
+import java.util.Scanner;
+import java.io.FileNotFoundException;
+
+import net.dv8tion.jda.core.entities.Member;
+import net.dv8tion.jda.core.entities.MessageChannel;
+import net.dv8tion.jda.core.entities.User;
+import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import net.dv8tion.jda.core.exceptions.HierarchyException;
+import net.dv8tion.jda.core.managers.GuildController;
+
+public class WordsModeration {
+	
+	public static void execute(MessageReceivedEvent event, String msg) throws HierarchyException {
+		MessageChannel channel = event.getChannel();
+		GuildController gc = new GuildController(event.getGuild());;
+		User user = event.getAuthor();
+		Member member = event.getMember();
+		
+		if(checkWords(msg)) {
+			event.getMessage().delete().queue();
+			if(!Warning.checkMember(member)) {
+				channel.sendMessage("You have " + Warning.getWarnings(member) + " warning/s " + user.getAsMention()).queue();
+			}// else
+				//gc.kick(member).queue();
+		}
+	}
+	
+	private static boolean checkWords(String msg) {
+		Scanner sc = null;
+		List<String> wordList = new ArrayList<String>();
+		
+		try {
+			sc = new Scanner(new FileInputStream("Racist slurs.txt"));
+			while(sc.hasNextLine()) {
+				wordList.add(sc.nextLine());
+			}
+		} catch(FileNotFoundException e) {
+			System.out.println("File not found");
+		} finally {
+			sc.close();
+		}
+		
+		for(String s : wordList) {
+			if(msg.contains(s))
+				return true;
+		}
+		return false;
+	}
+}
