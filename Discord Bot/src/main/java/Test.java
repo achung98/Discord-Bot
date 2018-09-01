@@ -19,7 +19,7 @@ public class Test extends ListenerAdapter {
 		//Bot object
 		JDABuilder example = new JDABuilder(AccountType.BOT);
 		//Set the bot token (Sale en la pagina de developers de discord)
-		example.setToken("NDgyMzQyNDY4NzcyNDI5ODI0.DmM94Q.4uQ8T-K1Gr2C-IyBokWP2GCwcGk")
+		example.setToken("") //Aqui va el token
 		//Add a new object of Test as the event listner
 		.addEventListener(new Test())
 		//Connect the bot to the server
