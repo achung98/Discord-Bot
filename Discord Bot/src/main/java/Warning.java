@@ -28,4 +28,9 @@ public class Warning {
 	public static void deleteAll() {
 		userList.delete();
 	}
+	
+	public static int getBans(Member member) {
+		return userList.getBanTimes(member);
+	}
 }
+

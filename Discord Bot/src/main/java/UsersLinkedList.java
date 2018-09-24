@@ -6,6 +6,8 @@ public class UsersLinkedList {
 		private int warnings;
 		//Specific memberId
 		private Member member;
+		//Number of bans
+		private int banNum;
 		
 		//Link to the next member
 		private UserNode next;
@@ -14,12 +16,14 @@ public class UsersLinkedList {
 		public UserNode() {
 			warnings = 0;
 			member = null;
+			banNum = 0;
 		}
 		
 		//Specific member constructor
 		public UserNode(Member member, int warnings) {
 			this.warnings = warnings;
 			this.member = member;
+			banNum = 0;
 		}
 
 		//Getters and setters
@@ -37,6 +41,14 @@ public class UsersLinkedList {
 
 		public void setWarnings(int warnings) {
 			this.warnings = warnings;
+		}
+		
+		public void setBanNum(int banNum) {
+			this.banNum = banNum;
+		}
+		
+		public int getBanNum() {
+			return banNum;
 		}
 	}
 	//Start of the user list
@@ -101,6 +113,17 @@ public class UsersLinkedList {
 		}
 	}
 	
+	//Get number of times the user has been banned
+	public int getBanTimes(Member member) {
+		UserNode it = head;
+		while(it != null) {
+			if(it.getMember().equals(member)) 
+				break;
+			it = it.next;
+		}
+		return it.getBanNum();
+	}
+	
 	//Remove user from the list
 	public void remove(Member member) {
 		if(head == null)
@@ -110,8 +133,14 @@ public class UsersLinkedList {
 		UserNode it = head;
 		while(it.next != null) {
 			if(it.next.getMember().equals(member)) {
-				it = it.next.next;
-				break;
+				//If the user has not been banned 3 times
+				if(it.next.getBanNum() != 3) {
+					it.next.banNum++;
+					break;
+				} else {
+					it = it.next.next;
+					break;
+				}
 			}
 			it = it.next;
 		}

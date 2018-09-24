@@ -1,4 +1,3 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.FileInputStream;
@@ -25,9 +24,15 @@ public class WordsModeration {
 			event.getMessage().delete().queue();
 			if(!Warning.checkMember(member)) {
 				channel.sendMessage("You have " + Warning.getWarnings(member) + " warning/s " + user.getAsMention()).queue();
-			} else
-				//Ban the user for two days
-				gc.ban(member, 2).queue();
+			} else {
+				//If the user has not been banned 3 times, banned him for two days
+				if(Warning.getBans(member) != 3)
+					//Ban the user for two days
+					gc.ban(member, 2, "Usage of racist slurs").queue();
+				else
+					//Ban the user "permanently"
+					gc.ban(member, 999999).queue();
+			}
 		}
 	}
 	
